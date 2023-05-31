@@ -1,0 +1,18 @@
+@import url('https://fonts.cdnfonts.com/css/roboto');
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  margin: 0;
+}
+h5 {
+  margin: 0;
+}
+
+@import './variables';

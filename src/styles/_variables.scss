@@ -1,0 +1,58 @@
+$gray10-color: #272d35;
+$gray8-color: #5c6c7f;
+$gray6-color: #afb9c5;
+$gray5-color: #bec6d0;
+$primary6-color: #0062ff;
+$primary9-color: #003180;
+$bg-color: #e5e5e5;
+$white-color: #ffffff;
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fs-normal {
+  font-style: normal;
+}
+
+.text-small {
+  font-size: 14px;
+  line-height: 22px;
+}
+.text-small-12 {
+  font-size: 12px;
+  line-height: 20px;
+}
+.text-normal {
+  font-size: 16px;
+  line-height: 24px;
+}
+.fc-gray10 {
+  color: $gray10-color;
+}
+.fc-gray8 {
+  color: $gray8-color;
+}
+.fc-gray6 {
+  color: $gray6-color;
+}
+.fc-gray5 {
+  color: $gray5-color;
+}
+.fc-white {
+  color: $white-color;
+}
+.bg-primary6 {
+  background-color: $primary6-color;
+}
+.bg-color {
+  background-color: $bg-color;
+}
+.button {
+  border: none;
+  border-radius: 2px;
+}
