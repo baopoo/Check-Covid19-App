@@ -6,25 +6,46 @@
       <span class="fw-400 fc-gray9 text-normal">Select your country:</span>
     </div>
     <div class="d-flex gap-3 location-country-group">
-      <card-country></card-country>
-      <card-country></card-country>
-      <card-country></card-country>
-      <card-country></card-country>
-      <card-country></card-country>
+      <card-country
+        v-for="(country, index) in countries"
+        :key="index"
+        :country="country"
+        :class="{ 'active': index === 0 }"
+        @changeCountry="changeCountry($event)"
+      ></card-country>
+    </div>
+    <div class="mt-3">
+      <Question :question="'Select the facility you are entering:'"></Question>
+    </div>
+    <div class="mt-3">
+      <Question :question="'Select the status:'"></Question>
     </div>
   </div>
 </template>
 <script>
 import Header from '../components/Header.vue'
 import CardCountry from '../components/CardCountry.vue'
+import Question from '../components/Question.vue'
 
 export default {
-  components: { Header, CardCountry },
-  computed: {
-
+  data() {
+    return {
+      status: ['Vistor', 'Employee'],
+    }
   },
-  created(){
-    console.log(this.$store.getters.listCountry);
+  components: { Header, CardCountry, Question },
+  computed: {
+    countries() {
+      return this.$store.getters['country/listCountry']
+    },
+    facilities(){
+      return this.$store.getters['facility/listFacility']
+    }
+  },
+  methods: {
+    changeCountry(value) {
+      this.$store.dispatch('facility/fetchListCountry', value.facilityList)
+    }
   }
 }
 </script>
@@ -42,6 +63,9 @@ export default {
     &::-webkit-scrollbar {
       display: none;
     }
+  }
+  h5 {
+    margin-bottom: 21px;
   }
 }
 </style>

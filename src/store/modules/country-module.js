@@ -1,14 +1,35 @@
 import axios from 'axios'
+import flagAUS from '../../assets/flagAus.png'
+import flagVIE from '../../assets/flagVie.png'
+import flagIND from '../../assets/flagInd.png'
+
 
 export const country = {
-  namespace: true,
+  namespaced: true,
   state: {
     listCountry: [],
+    listCountryFlag: [
+      {
+        id: 1,
+        imgUrl: flagAUS
+      },
+      {
+        id: 2,
+        imgUrl: flagIND
+      },
+      {
+        id: 3,
+        imgUrl: flagVIE
+      }
+    ],
   },
   getters: {
     listCountry: (state) => {
       return state.listCountry
     },
+    listCountryFlag: (state) => {
+      return state.listCountryFlag
+    }
   },
 
   mutations: {

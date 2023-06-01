@@ -8,6 +8,7 @@ body {
   font-family: 'Roboto', sans-serif;
   max-width: 375px;
   margin: 0 auto;
+  color: #000000;
 }
 
 p {
@@ -16,5 +17,9 @@ p {
 h5 {
   margin: 0;
 }
-
+input[type='radio'] {
+  // width: 24px;
+  // height: 24px;
+}
 @import './variables';
+@import './common/question';
