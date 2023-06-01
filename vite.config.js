@@ -18,4 +18,7 @@ export default defineConfig({
   build: {
     brotliSize: false, // unsupported in StackBlitz
   },
+  server: {
+    // port:8080,
+  }
 })

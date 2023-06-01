@@ -1,9 +1,12 @@
 $gray10-color: #272d35;
+$gray9-color: #475362;
 $gray8-color: #5c6c7f;
 $gray6-color: #afb9c5;
 $gray5-color: #bec6d0;
+$gray2-color: #f9fafb;
 $primary6-color: #0062ff;
 $primary9-color: #003180;
+$layout-color: #f6f6fa;
 $bg-color: #e5e5e5;
 $white-color: #ffffff;
 
@@ -34,6 +37,9 @@ $white-color: #ffffff;
 .fc-gray10 {
   color: $gray10-color;
 }
+.fc-gray9 {
+  color: $gray9-color;
+}
 .fc-gray8 {
   color: $gray8-color;
 }
@@ -43,14 +49,26 @@ $white-color: #ffffff;
 .fc-gray5 {
   color: $gray5-color;
 }
+.fc-gray2 {
+  color: $gray2-color;
+}
 .fc-white {
   color: $white-color;
+}
+.fc-primary9 {
+  color: $primary9-color;
 }
 .bg-primary6 {
   background-color: $primary6-color;
 }
 .bg-color {
   background-color: $bg-color;
+}
+.bg-gray2 {
+  background-color: $gray2-color;
+}
+.bg-layout {
+  background-color: $layout-color;
 }
 .button {
   border: none;
