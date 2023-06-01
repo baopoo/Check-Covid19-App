@@ -19,7 +19,6 @@ export default {
     onClickGoLocation(){
       this.$store.dispatch("country/fetchListCountry");
       this.$router.push('/select-location');
-      console.log(this.$store);
     }
   }
 }

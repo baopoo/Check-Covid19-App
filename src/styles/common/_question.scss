@@ -1,8 +1,13 @@
 .ant-radio-input {
   width: 24px;
   height: 24px;
+  position: unset;
+  opacity: 1;
 }
 .ant-radio {
   display: flex;
   align-items: center;
+}
+.ant-radio-inner {
+  display: none;
 }

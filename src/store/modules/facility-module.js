@@ -7,16 +7,17 @@ export const facility = {
     listFacility: (state) => {
       return state.listFacility
     },
+
   },
 
   mutations: {
     updateListFacility: (state, listFacility) => {
       state.listFacility = listFacility
     },
+
   },
   actions: {
-    fetchListCountry: ({ commit }, listFacility) => {
-      // console.log(listFacility)
+    fetchListFacility: ({ commit }, listFacility) => {
       commit('updateListFacility', listFacility)
     },
   },

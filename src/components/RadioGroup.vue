@@ -1,22 +1,29 @@
 <template>
-  <a-radio-group v-model="value" size="large" @change="onChange">
-    <a-radio :style="radioStyle" size="large" :value="1"> Option A </a-radio>
-    <a-radio :style="radioStyle" size="large" :value="2"> Option A </a-radio>
-    <a-radio :style="radioStyle" size="large" :value="3"> Option A </a-radio>
+  <a-radio-group @change="onChange" :default-value="defaultValue">
+    <template v-if="defaultValue">
+      <a-radio v-for="anwser in answerRadios" :key="anwser.id" :style="radioStyle" :value="anwser.name">
+        {{ anwser.name }}
+      </a-radio>
+    </template>
   </a-radio-group>
 </template>
 <script>
 export default {
   data() {
     return {
-      value: 1,
       radioStyle: {
         display: 'flex',
         marginBottom: '16px',
         gap: '16px',
         alignItems: 'center',
-        color: '#272D35'
+        color: '#272D35',
       },
+    }
+  },
+  computed: {
+    defaultValue(){
+      console.log(this.answerRadios[0]?.name);
+      return this.answerRadios[0]?.name
     }
   },
   methods: {
@@ -25,13 +32,12 @@ export default {
     },
   },
   props: {
-    answers: {
-      type: Array
-    }
-  }
+    answerRadios: {
+      type: Array,
+      required: true,
+    },
+  },
 }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

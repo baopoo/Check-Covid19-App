@@ -1,7 +1,7 @@
 <template>
   <div class="question d-flex flex-column bg-question fs-normal text-normal fw-400">
     <span class="fc-gray9">{{ question }}</span>
-    <radio-group></radio-group>
+    <radio-group :answerRadios="anwsers"></radio-group>
   </div>
 </template>
 <script>
@@ -12,14 +12,15 @@ export default {
   props: {
     question: {
       type: String,
+      required: true,
     },
-    answers: {
+    anwsers: {
       type: Array,
+      required: true,
+
     },
   },
-  created(){
-    
-  }
+
 }
 </script>
 <style lang="scss" scoped>

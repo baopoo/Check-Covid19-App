@@ -38,14 +38,18 @@ export const country = {
     },
   },
   actions: {
-    fetchListCountry: async ({ commit }) => {
+    fetchListCountry: ({ commit, dispatch }) => {
       try {
-        await axios
+         axios
           .get('https://ss.covid19checkins.com/backend/api/countries')
-          .then((response) => {
+          .then(async(response) => {
             if (response.status === 200) {
-              // console.log(response.data)
-              commit('updateListCountry', response.data)
+              let data = response.data
+              let facilityList = data[0].facilityList
+              let firstFacility = facilityList[0].name
+              console.log(firstFacility);
+              commit('updateListCountry',data)
+              dispatch('facility/fetchListFacility',facilityList, {root: true})
             } else {
               console.log(response)
             }

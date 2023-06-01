@@ -1,6 +1,6 @@
 <template>
   <div
-    @click="onClickSelectedCountry($event, country)"
+    @click.stop="onClickSelectedCountry($event, country)"
     class="d-flex flex-column gap-1 bg-layout justify-content-center align-items-center"
   >
     <img alt="" :src="flagCountry" />
@@ -26,8 +26,12 @@ export default {
       if (elems !== null) {
         elems.classList.remove('active')
       }
-      e.target.classList.add('active');
-      this.$emit('changeCountry', country);
+      if (e.target.tagName.toLowerCase() === 'div') {
+        e.target.classList.add('active');
+      } else {
+        e.target.parentNode.classList.add('active')
+      }
+      this.$store.dispatch('facility/fetchListFacility', country.facilityList);
     },
   },
 }

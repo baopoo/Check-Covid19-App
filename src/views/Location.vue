@@ -5,20 +5,19 @@
       <h5 class="fw-500 fc-primary9">To begin, please select your country and facility location</h5>
       <span class="fw-400 fc-gray9 text-normal">Select your country:</span>
     </div>
-    <div class="d-flex gap-3 location-country-group">
+    <div class="d-flex gap-3 location-country-group" v-if="countries">
       <card-country
         v-for="(country, index) in countries"
         :key="index"
         :country="country"
-        :class="{ 'active': index === 0 }"
-        @changeCountry="changeCountry($event)"
+        :class="{ active: index === 0 }"
       ></card-country>
     </div>
-    <div class="mt-3">
-      <Question :question="'Select the facility you are entering:'"></Question>
+    <div class="mt-3" v-if="facility">
+      <Question :question="'Select the facility you are entering:'" :anwsers="facility"></Question>
     </div>
     <div class="mt-3">
-      <Question :question="'Select the status:'"></Question>
+      <Question :question="'Select the status:'" :anwsers="status"></Question>
     </div>
   </div>
 </template>
@@ -30,7 +29,7 @@ import Question from '../components/Question.vue'
 export default {
   data() {
     return {
-      status: ['Vistor', 'Employee'],
+      status: [{ id: 1, name: 'Vistor' }, {id: 2, name: 'Employee'}],
     }
   },
   components: { Header, CardCountry, Question },
@@ -38,15 +37,12 @@ export default {
     countries() {
       return this.$store.getters['country/listCountry']
     },
-    facilities(){
+    facility() {
       return this.$store.getters['facility/listFacility']
-    }
+    },
   },
-  methods: {
-    changeCountry(value) {
-      this.$store.dispatch('facility/fetchListCountry', value.facilityList)
-    }
-  }
+
+  methods: {},
 }
 </script>
 <style lang="scss" scoped>
