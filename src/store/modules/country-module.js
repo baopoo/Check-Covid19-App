@@ -8,6 +8,9 @@ export const country = {
   namespaced: true,
   state: {
     listCountry: [],
+    listFacility: [],
+    firstFacility: '',
+    countryCode: '',
     listCountryFlag: [
       {
         id: 1,
@@ -29,6 +32,15 @@ export const country = {
     },
     listCountryFlag: (state) => {
       return state.listCountryFlag
+    },
+    listFacility: (state) => {
+      return state.listFacility
+    },
+    countryCode: (state) => {
+      return state.countryCode;
+    },
+    firstFacility: (state) => {
+      return state.firstFacility;
     }
   },
 
@@ -36,9 +48,18 @@ export const country = {
     updateListCountry: (state, listCountry) => {
       state.listCountry = listCountry
     },
+    updateListFacility: (state, listFacility) => {
+      state.listFacility = listFacility
+    },
+    updateCountryCode: (state, countryCode) => {
+      state.countryCode = countryCode;
+    },
+    updateFirstFacility: (state, firstFacility) => {
+      state.firstFacility = firstFacility
+    }
   },
   actions: {
-    fetchListCountry: ({ commit, dispatch }) => {
+    fetchListCountry: ({ commit }) => {
       try {
          axios
           .get('https://ss.covid19checkins.com/backend/api/countries')
@@ -46,10 +67,12 @@ export const country = {
             if (response.status === 200) {
               let data = response.data
               let facilityList = data[0].facilityList
+              let countryCode = data[0].code
               let firstFacility = facilityList[0].name
-              console.log(firstFacility);
               commit('updateListCountry',data)
-              dispatch('facility/fetchListFacility',facilityList, {root: true})
+              commit('updateListFacility',facilityList)
+              commit('updateCountryCode', countryCode)
+              commit('updateFirstFacility', firstFacility)
             } else {
               console.log(response)
             }
@@ -61,5 +84,14 @@ export const country = {
         console.log(error)
       }
     },
+    fetchListFacility: ({ commit }, listFacility) => {
+      commit('updateListFacility', listFacility)
+    },
+    fetchContryCode: ({ commit }, countryCode) => {
+      commit('updateCountryCode', countryCode)
+    },
+    fetchFirstFacility: ({ commit }, firstFacility) => {
+      commit('updateFirstFacility', firstFacility)
+    }
   },
 }

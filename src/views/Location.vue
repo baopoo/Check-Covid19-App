@@ -13,11 +13,15 @@
         :class="{ active: index === 0 }"
       ></card-country>
     </div>
-    <div class="mt-3" v-if="facility">
+    <div class="mt-3">
       <Question :question="'Select the facility you are entering:'" :anwsers="facility"></Question>
     </div>
     <div class="mt-3">
       <Question :question="'Select the status:'" :anwsers="status"></Question>
+    </div>
+    <div class="location-group-button mt-4 p-3 d-flex">
+      <Button :name="'Back'"></Button>
+      <Button :name="'Next'"></Button>
     </div>
   </div>
 </template>
@@ -25,24 +29,27 @@
 import Header from '../components/Header.vue'
 import CardCountry from '../components/CardCountry.vue'
 import Question from '../components/Question.vue'
+import Button from '../components/Button.vue'
 
 export default {
+  components: { Header, CardCountry, Question, Button },
   data() {
     return {
       status: [{ id: 1, name: 'Vistor' }, {id: 2, name: 'Employee'}],
     }
   },
-  components: { Header, CardCountry, Question },
   computed: {
     countries() {
       return this.$store.getters['country/listCountry']
     },
     facility() {
-      return this.$store.getters['facility/listFacility']
+      return this.$store.getters['country/listFacility']
     },
   },
+  beforeCreate(){
+    this.$store.dispatch("country/fetchListCountry");
+  }
 
-  methods: {},
 }
 </script>
 <style lang="scss" scoped>
@@ -58,6 +65,13 @@ export default {
     max-width: 100%;
     &::-webkit-scrollbar {
       display: none;
+    }
+  }
+  &-group-button {
+    gap: 17px;
+
+    > button {
+      flex: 1;
     }
   }
   h5 {

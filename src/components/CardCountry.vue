@@ -31,7 +31,9 @@ export default {
       } else {
         e.target.parentNode.classList.add('active')
       }
-      this.$store.dispatch('facility/fetchListFacility', country.facilityList);
+      this.$store.dispatch('country/fetchListFacility', country.facilityList);
+      this.$store.dispatch('country/fetchContryCode', country.code);
+      this.$store.dispatch('country/fetchFirstFacility', country.facilityList[0]?.name);
     },
   },
 }
