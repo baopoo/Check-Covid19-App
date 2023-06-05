@@ -9,6 +9,7 @@ export const country = {
   state: {
     listCountry: [],
     listFacility: [],
+    listQuestion: [],
     firstFacility: '',
     countryCode: '',
     listCountryFlag: [
@@ -41,6 +42,9 @@ export const country = {
     },
     firstFacility: (state) => {
       return state.firstFacility;
+    },
+    listQuestion: (state) => {
+      return state.listQuestion;
     }
   },
 
@@ -56,6 +60,9 @@ export const country = {
     },
     updateFirstFacility: (state, firstFacility) => {
       state.firstFacility = firstFacility
+    },
+    updateListQuestion: (state, listQuestion) => {
+      state.listQuestion = listQuestion
     }
   },
   actions: {
@@ -63,14 +70,16 @@ export const country = {
       try {
          axios
           .get('https://ss.covid19checkins.com/backend/api/countries')
-          .then(async(response) => {
+          .then((response) => {
             if (response.status === 200) {
               let data = response.data
               let facilityList = data[0].facilityList
+              let questionList = data[0].questionList
               let countryCode = data[0].code
               let firstFacility = facilityList[0].name
               commit('updateListCountry',data)
               commit('updateListFacility',facilityList)
+              commit('updateListQuestion', questionList)
               commit('updateCountryCode', countryCode)
               commit('updateFirstFacility', firstFacility)
             } else {
@@ -92,6 +101,9 @@ export const country = {
     },
     fetchFirstFacility: ({ commit }, firstFacility) => {
       commit('updateFirstFacility', firstFacility)
+    },
+    fetchListQuestion: ({ commit }, listQuestion) => {
+      commit('updateListQuestion', listQuestion)
     }
   },
 }

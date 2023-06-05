@@ -6,8 +6,9 @@ import { store } from './store'
 import 'ant-design-vue/dist/antd.css'
 import './styles/index.scss'
 
-import { Radio } from 'ant-design-vue';
+import { Radio, Progress } from 'ant-design-vue';
 Vue.use(Radio);
+Vue.use(Progress)
 Vue.use(VueRouter)
 const router = new VueRouter({
   mode: 'history',

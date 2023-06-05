@@ -1,15 +1,24 @@
 <template>
-  <button class="button py-2 text-normal" @click="onClickButton(name)" :style="[name === 'Back' ? classButtonBack : classButtonNext]">
+  <button
+    class="button py-2 text-normal"
+    :disabled="isDisabled"
+    @click="onClickButton(name)"
+    :style="[name === 'Back' ? classButtonBack : classButtonNext, isDisabled && classButtonDisabled]"
+  >
     {{ name }}
   </button>
 </template>
 <script>
 export default {
-    // { 'background-color': name === 'Back' ? '#FFFFFF' : '#0062FF' }
+  // { 'background-color': name === 'Back' ? '#FFFFFF' : '#0062FF' }
   props: {
     name: {
       type: String,
       required: true,
+    },
+    isDisabled: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -17,19 +26,24 @@ export default {
       classButtonBack: {
         color: '#5C6C7F',
         backgroundColor: '#FFFFFF',
-        border: '1px solid #BEC6D0'
+        border: '1px solid #BEC6D0',
       },
       classButtonNext: {
         color: '#FFFFFF',
         backgroundColor: '#0062FF',
       },
+      classButtonDisabled: {
+        backgroundColor: '#EAEDF0',
+        color: '#AFB9C5',
+        border: '1px solid #BEC6D0',
+      },
     }
   },
   methods: {
-    onClickButton(type){
-        console.log(type);
-    }
-  }
+    onClickButton(type) {
+      this.$emit('onClickButton', type)
+    },
+  },
 }
 </script>
 <style lang="scss" scoped></style>

@@ -2,7 +2,7 @@
   "name": "vite-js",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --open",
+    "dev": "vite --open --host",
     "build": "vite build",
     "serve": "vite preview"
   },

@@ -24,8 +24,12 @@ export default {
     },
   },
   created() {
-    this.realDay = this.getRealDay()
     this.realTime = this.getRealTime()
+    this.realDay = this.getRealDay()
+    // setInterval(() => {
+    //   this.realTime = this.getRealTime()
+    //   this.realDay = this.getRealDay()
+    // }, 60000);
   },
   methods: {
     getRealDay() {
@@ -42,7 +46,7 @@ export default {
       let ampm = hours >= 12 ? 'PM' : 'AM'
       hours = hours % 12
       hours = hours !== 0 ? hours : 12
-      hours = hours < 11 ? '0'+hours : hours
+      hours = hours < 10 ? '0'+hours : hours
       minutes = minutes < 10 ? '0' + minutes : minutes
       return hours + ':' + minutes + '' + ampm
     },

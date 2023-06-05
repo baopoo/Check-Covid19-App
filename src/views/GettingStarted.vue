@@ -9,17 +9,18 @@
       check-in on each visit to the premises.
     </p>
     <button class="button bg-primary6 fc-white text-normal fw-400" @click="onClickGoLocation()">
-      Get Started</button>
-    <span class="text-small-12 fc-gray6 fc-400">Version 1.0.1</span>
+      Get Started
+    </button>
+    <span class="text-small-12 fc-gray6 fw-400">Version 1.0.1</span>
   </div>
 </template>
 <script>
 export default {
   methods: {
-    onClickGoLocation(){
-      this.$router.push('/select-location');
-    }
-  }
+    onClickGoLocation() {
+      this.$router.push('/select-location')
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>
@@ -33,10 +34,12 @@ div {
   img:nth-child(2) {
     margin-bottom: 45px;
   }
+
   h5 {
     margin-bottom: 12px;
     font-weight: 500;
   }
+
   p {
     margin-bottom: 27px;
   }

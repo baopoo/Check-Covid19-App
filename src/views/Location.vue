@@ -14,14 +14,18 @@
       ></card-country>
     </div>
     <div class="mt-3">
-      <Question :question="'Select the facility you are entering:'" :anwsers="facility"></Question>
+      <Question
+        :question="'Select the facility you are entering:'"
+        :isChangFacility="true"
+        :anwsers="facility"
+      ></Question>
     </div>
     <div class="mt-3">
       <Question :question="'Select the status:'" :anwsers="status"></Question>
     </div>
-    <div class="location-group-button mt-4 p-3 d-flex">
-      <Button :name="'Back'"></Button>
-      <Button :name="'Next'"></Button>
+    <div class="location-group-button button-group mt-4">
+      <Button :name="'Back'" @onClickButton="onClickEventLocaton($event)"></Button>
+      <Button :name="'Next'" @onClickButton="onClickEventLocaton($event)"></Button>
     </div>
   </div>
 </template>
@@ -35,7 +39,10 @@ export default {
   components: { Header, CardCountry, Question, Button },
   data() {
     return {
-      status: [{ id: 1, name: 'Vistor' }, {id: 2, name: 'Employee'}],
+      status: [
+        { id: 1, name: 'Vistor' },
+        { id: 2, name: 'Employee' },
+      ],
     }
   },
   computed: {
@@ -46,10 +53,18 @@ export default {
       return this.$store.getters['country/listFacility']
     },
   },
-  beforeCreate(){
-    this.$store.dispatch("country/fetchListCountry");
+  beforeCreate() {
+    this.$store.dispatch('country/fetchListCountry')
+  },
+  methods: {
+    onClickEventLocaton(type){
+      if (type === 'Back') {
+        this.$router.push('/getting-started')
+      } else {
+        this.$router.push('/office-guidelines')
+      }
+    }
   }
-
 }
 </script>
 <style lang="scss" scoped>
@@ -68,8 +83,6 @@ export default {
     }
   }
   &-group-button {
-    gap: 17px;
-
     > button {
       flex: 1;
     }
