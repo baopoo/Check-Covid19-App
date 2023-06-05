@@ -2,6 +2,7 @@ const GettingStared = () => import('../views/GettingStarted.vue')
 const Location = () => import('../views/Location.vue')
 const OfficeGuidelines = () => import('../views/OfficeGuidelines.vue')
 const HealthChecklist = () => import('../views/HealthChecklist.vue')
+const ContactInformation = () => import('../views/ContactInformation.vue')
 
 
 export const routes = [
@@ -24,6 +25,11 @@ export const routes = [
         path: '/health-checklist',
         name: 'health-checklist',
         component: HealthChecklist,
+    },
+    {
+        path: '/contact-information',
+        name: 'contact-information',
+        component: ContactInformation,
     },
     {
         path: '',

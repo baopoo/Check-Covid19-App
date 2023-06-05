@@ -19,8 +19,12 @@
       </div>
     </div>
     <div class="health-checklist-button button-group">
-      <Button :name="'Back'"></Button>
-      <Button :name="'Next'" :isDisabled = "questionList.length !== anwserList.length"></Button>
+      <Button :name="'Back'" @onClickButton="onClickEventButton($event)"></Button>
+      <Button
+        :name="'Next'"
+        :isDisabled="questionList.length !== anwserList.length"
+        @onClickButton="onClickEventButton($event)"
+      ></Button>
     </div>
   </div>
 </template>
@@ -39,19 +43,26 @@ export default {
         { id: 2, name: 'No' },
       ],
       isNotChooseValue: true,
-      arrAnwsers: []
+      arrAnwsers: [],
     }
   },
   computed: {
     questionList() {
       return this.$store.getters['country/listQuestion']
     },
-    anwserList(){
+    anwserList() {
       return this.$store.getters['user/listAnwser']
-    }
+    },
   },
   methods: {
-  }
+    onClickEventButton(type){
+      if (type === 'Back') {
+        this.$router.push('/office-guidelines')
+      } else {
+        this.$router.push('contact-information')
+      }
+    }
+  },
 }
 </script>
 <style lang="scss" scoped>
