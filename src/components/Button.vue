@@ -2,24 +2,23 @@
   <button
     class="button py-2 text-normal"
     :disabled="isDisabled"
-    @click="onClickButton(name)"
     :style="[name === 'Back' || name === 'Done'? classButtonBack : classButtonNext, isDisabled && classButtonDisabled]"
     :type="name ==='Submit' ? 'submit' : 'button'"
+    @click="onClickButton(name)"
   >
     {{ name }}
   </button>
 </template>
 <script>
 export default {
-  // { 'background-color': name === 'Back' ? '#FFFFFF' : '#0062FF' }
   props: {
-    name: {
-      type: String,
-      required: true,
-    },
     isDisabled: {
       type: Boolean,
       default: false,
+    },
+    name: {
+      type: String,
+      required: true,
     },
   },
   data() {

@@ -1,7 +1,7 @@
 <template>
   <div
-    @click.stop="onClickSelectedCountry($event, country)"
     class="d-flex flex-column gap-1 bg-layout justify-content-center align-items-center"
+    @click.stop="onClickSelectedCountry($event, country)"
   >
     <img alt="" :src="flagCountry" />
     <span class="text-small-12 fc-gray10">{{ country.name }}</span>

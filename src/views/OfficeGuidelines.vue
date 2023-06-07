@@ -2,7 +2,10 @@
   <div class="office-guideline">
     <Header></Header>
     <div class="px-3">
-      <Step :currentPercent="1" :currentStep="'1.Office Guidelines'" :nextStep="'Next: Health Checklist'"></Step>
+      <Step 
+        :currentPercent="1" :currentStep="'1.Office Guidelines'" 
+        :nextStep="'Next: Health Checklist'"
+        ></Step>
     </div>
     <div class="office-guideline-content d-flex flex-column mx-auto text-center">
       <span class="fw-400 fc-gray9 text-normal">Read and acknowledge the Office Guidelines</span>

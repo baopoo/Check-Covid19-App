@@ -2,9 +2,9 @@
   <div class="form-group">
     <label for="contact-input" v-if="label !==''" class="text-small fw-400 fc-gray9">{{ label }}</label>
     <input
-      type="text"
       class="form-control fw-400 fc-gray10 text-normal"
       id="contact-input"
+      type="text"
       :placeholder="placeholder"
       :value="value"
       @input="onInputValue($event)"

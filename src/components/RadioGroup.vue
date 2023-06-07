@@ -1,7 +1,10 @@
 <template>
   <a-radio-group @change="onChange" v-model="defaultValue">
     <template>
-      <a-radio v-for="anwser in answerRadios" :key="anwser.id" :style="radioStyle" :value="anwser.name">
+      <a-radio v-for="anwser in answerRadios" 
+        :key="anwser.id" :style="radioStyle" 
+        :value="anwser.name"
+      >
         {{ anwser.name }}
       </a-radio>
     </template>

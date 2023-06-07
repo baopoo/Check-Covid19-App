@@ -27,10 +27,10 @@ export default {
   created() {
     this.realTime = this.getRealTime()
     this.realDay = this.getRealDay()
-    // setInterval(() => {
-    //   this.realTime = this.getRealTime()
-    //   this.realDay = this.getRealDay()
-    // }, 20000);
+    setInterval(() => {
+      this.realTime = this.getRealTime()
+      this.realDay = this.getRealDay()
+    }, 10000);
   },
   methods: {
     getRealDay() {

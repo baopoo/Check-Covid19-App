@@ -2,7 +2,12 @@
   <div class="health-checklist">
     <Header></Header>
     <div class="px-3 mb-4">
-      <Step :current-step="'2.Health Checklist'" :current-percent="2" :next-step="'Next: Personal Information'"> </Step>
+      <Step 
+        :current-step="'2.Health Checklist'" 
+        :current-percent="2" 
+        :next-step="'Next: Personal Information'"
+      >
+      </Step>
     </div>
     <div class="health-checklist-content px-3 pb-4">
       <span class="fw-400 text-normal fc-gray9">Please answer follow questions below:</span>
