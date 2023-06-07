@@ -13,6 +13,7 @@ export default {
     return {
       realDay: '',
       realTime: '',
+
     }
   },
   computed: {
@@ -29,7 +30,7 @@ export default {
     // setInterval(() => {
     //   this.realTime = this.getRealTime()
     //   this.realDay = this.getRealDay()
-    // }, 60000);
+    // }, 20000);
   },
   methods: {
     getRealDay() {
@@ -37,7 +38,7 @@ export default {
       let dd = String(today.getDate()).padStart(2, '0')
       let mm = String(today.getMonth() + 1).padStart(2, '0')
       let yyyy = today.getFullYear()
-      return mm + '/' + dd + '/' + yyyy
+      return dd + '/' + mm + '/' + yyyy
     },
     getRealTime() {
       let date = new Date()

@@ -33,8 +33,8 @@
               <label for="contact-input" class="text-small fw-400 fc-gray9">Contact Number</label>
               <div class="d-flex gap-2">
                 <Select 
-                  :contacts="contactNumbers" 
-                  @contactNumber="user.contactNumber = $event">
+                  :listSelects="contactNumbers" 
+                  @selectedValue="user.contactNumber = $event">
                 </Select>
                 <ValidationProvider name="Phone" rules="required|numeric" v-slot="{ errors }">
                   <Input v-model="user.contactPhone" :error="errors[0]" />

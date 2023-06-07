@@ -1,6 +1,13 @@
 <template>
-  <a-select :value="defaultValue" style="width: 150px" @change="handleChange">
-    <a-select-option v-for="(value, key, index) in contacts" :key="index" :value="key + value"
+  <a-select
+    show-search
+    option-filter-prop="children"
+    :filter-option="filterOption"
+    :value="defaultValue"
+    style="width: 150px"
+    @change="handleChange"
+  >
+    <a-select-option v-for="(value, key, index) in listSelects" :key="index" :value="key + value"
       >{{ key }}: {{ value }}
     </a-select-option>
   </a-select>
@@ -13,23 +20,28 @@ export default {
     }
   },
   props: {
-    contacts: {
+    listSelects: {
       type: Object,
       required: true,
-      default: {}
+      default: {},
     },
   },
   watch: {
-    contacts(newContacts){
-      this.defaultValue = Object.keys(newContacts)[0] + Object.values(newContacts)[0]
-      this.$emit('contactNumber', this.defaultValue.slice(this.defaultValue.indexOf('+') + 1))
-    }
+    listSelects(newListSelects) {
+      this.defaultValue = Object.keys(newListSelects)[0] + Object.values(newListSelects)[0]
+      this.$emit('selectedValue', this.defaultValue.slice(this.defaultValue.indexOf('+') + 1))
+    },
   },
   methods: {
     handleChange(value) {
       this.defaultValue = value
-      let contactNumber = value.slice(value.indexOf('+') + 1)
-      this.$emit('contactNumber', contactNumber)
+      let selectedValue = value.slice(value.indexOf('+') + 1)
+      this.$emit('selectedValue', selectedValue)
+    },
+    filterOption(input, option) {
+      return (
+        option.componentOptions.children[0].text.toLowerCase().indexOf(input.toLowerCase()) >= 0
+      );
     },
   },
 }
