@@ -77,7 +77,7 @@ import { alpha_spaces, numeric, required } from 'vee-validate/dist/rules'
 
 extend('alpha_spaces', {
   ...alpha_spaces,
-  message: 'This field must not contain numeric characters !',
+  message: 'This field must contain alphabetic characters or spaces !',
 })
 extend('numeric', {
   ...numeric,
@@ -85,7 +85,7 @@ extend('numeric', {
 })
 extend('required', {
   ...required,
-  message: 'This field must required !',
+  message: 'This field is required !',
 })
 
 
