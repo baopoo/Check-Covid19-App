@@ -2,10 +2,7 @@
   <div class="office-guideline">
     <Header></Header>
     <div class="px-3">
-      <Step 
-        :currentPercent="1" :currentStep="'1.Office Guidelines'" 
-        :nextStep="'Next: Health Checklist'"
-        ></Step>
+      <Step :currentPercent="1" :currentStep="'1.Office Guidelines'" :nextStep="'Next: Health Checklist'"></Step>
     </div>
     <div class="office-guideline-content d-flex flex-column mx-auto text-center">
       <span class="fw-400 fc-gray9 text-normal">Read and acknowledge the Office Guidelines</span>
@@ -20,8 +17,17 @@
       </a>
     </div>
     <div class="office-guideline-button button-group">
-      <Button :name="'Back'" @onClickButton="onClickEventButton($event)"></Button>
-      <Button :name="'Next'" :isDisabled="isNotOpenPdf" @onClickButton="onClickEventButton($event)"></Button>
+      <Button 
+        :name="'Back'" 
+        :type="'default'"
+        @onClickButton="onClickEventButton($event)" 
+      ></Button>
+      <Button
+        :name="'Next'"
+        :isDisabled="isNotOpenPdf"
+        :type="'primary'"
+        @onClickButton="onClickEventButton($event)"
+      ></Button>
     </div>
   </div>
 </template>

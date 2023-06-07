@@ -8,14 +8,16 @@
       comes on premise. This check-in system is required for both visitors and employees and you will be required to
       check-in on each visit to the premises.
     </p>
-    <button class="button bg-primary6 fc-white text-normal fw-400" @click="onClickGoLocation()">
-      Get Started
-    </button>
+    <Button :name="'Get Started'" :type="'primary'" @onClickButton="onClickGoLocation()"></Button>
+
     <span class="text-small-12 fc-gray6 fw-400">Version 1.0.1</span>
   </div>
 </template>
 <script>
+import Button from '../components/Button.vue';
+
 export default {
+  components: {Button},
   methods: {
     onClickGoLocation() {
       this.$router.push('/select-location')

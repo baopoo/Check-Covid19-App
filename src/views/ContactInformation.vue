@@ -60,8 +60,17 @@
       </div>
     </div>
     <div class="contact-information-button button-group">
-      <Button :name="'Back'" @onClickButton="onClickButtonBack()"></Button>
-      <Button :name="'Submit'" form="contact-information-form"></Button>
+      <Button 
+        :name="'Back'" 
+        :type="'default'"
+        @onClickButton="onClickButtonBack()" 
+      ></Button>
+      <Button 
+        :name="'Submit'" 
+        form="contact-information-form" 
+        :type="'primary'" 
+        :htmlType="'submit'"
+      ></Button>
     </div>
   </div>
 </template>

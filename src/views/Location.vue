@@ -25,8 +25,17 @@
         <Question :question="'Select the status:'" :anwsers="status"></Question>
       </div>
       <div class="location-group-button button-group mt-4">
-        <Button :name="'Back'" @onClickButton="onClickEventLocaton($event)"></Button>
-        <Button :name="'Next'" @onClickButton="onClickEventLocaton($event)"></Button>
+        <Button 
+          :name="'Back'" 
+          :type="'default'"
+          @onClickButton="onClickEventLocaton($event)" 
+        >
+        </Button>
+        <Button 
+          :name="'Next'" 
+          :type="'primary'"
+          @onClickButton="onClickEventLocaton($event)" 
+        ></Button>
       </div>
     </template>
     <template v-else>
@@ -63,14 +72,14 @@ export default {
     this.$store.dispatch('country/fetchListCountry')
   },
   methods: {
-    onClickEventLocaton(type){
+    onClickEventLocaton(type) {
       if (type === 'Back') {
         this.$router.push('/getting-started')
       } else {
         this.$router.push('/office-guidelines')
       }
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>

@@ -1,13 +1,13 @@
 <template>
   <div class="form-group">
     <label for="contact-input" v-if="label !==''" class="text-small fw-400 fc-gray9">{{ label }}</label>
-    <input
-      class="form-control fw-400 fc-gray10 text-normal"
+    <a-input 
+      :placeholder="placeholder" 
       id="contact-input"
-      type="text"
-      :placeholder="placeholder"
+      class="form-control fw-400 fc-gray10 text-normal"
+      size="large"
       :value="value"
-      @input="onInputValue($event)"
+      @change="onInputValue($event)"
     />
     <small v-if="error !== ''" class="fw-400 text-danger fst-italic">{{ error }}</small>
   </div>

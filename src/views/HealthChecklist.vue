@@ -24,11 +24,15 @@
       </div>
     </div>
     <div class="health-checklist-button button-group">
-      <Button :name="'Back'" @onClickButton="onClickEventButton($event)"></Button>
+      <Button 
+        :name="'Back'" 
+        :type="'default'"
+        @onClickButton="onClickEventButton($event)" 
+      ></Button>
       <Button
         :name="'Next'"
         :isDisabled="questionList.length !== anwserList.length"
-        @onClickButton="onClickEventButton($event)"
+        @onClickButton="onClickEventButton($event)" :type="'primary'"
       ></Button>
     </div>
   </div>

@@ -17,7 +17,7 @@ Vue.use(VueConfetti)
 
 
 
-import { Radio, Progress, Select, Checkbox, Modal, Spin} from 'ant-design-vue';
+import { Radio, Progress, Select, Checkbox, Modal, Spin, Button, Input} from 'ant-design-vue';
 Vue.use(Radio);
 Vue.use(Progress)
 Vue.use(VueRouter)
@@ -25,7 +25,8 @@ Vue.use(Select)
 Vue.use(Checkbox)
 Vue.use(Modal)
 Vue.use(Spin)
-
+Vue.use(Button)
+Vue.use(Input)
 
 
 const router = new VueRouter({

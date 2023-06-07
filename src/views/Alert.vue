@@ -33,7 +33,7 @@
       <Button 
         :name="'Done'" 
         :style="'width: 157px'" 
-        @onClickButton="onClickButtonDone($event)"
+        @onClickButton="onClickButtonDone($event)" :type="'default'"
       >
       </Button>
     </div>

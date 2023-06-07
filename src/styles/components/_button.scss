@@ -1,0 +1,11 @@
+.ant-btn {
+  border-radius: 2px;
+
+  &-primary {
+    background-color: $primary6-color;
+  }
+  &-default {
+    background-color: $white-color;
+    color: $gray8-color;
+  }
+}
