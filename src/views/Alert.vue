@@ -9,9 +9,6 @@
           Thank you for completing. You can now safely enter the office. Please be sure to check-in on each office
           visit. Have a great day!
         </p>
-        <div class="alert-content-firework">
-          <vue-damp-fireworks :boxHeight="590" :boxWidth="375" />
-        </div>
       </template>
       <template v-else>
         <img :style="'margin-top: 50px;'" src="../assets/fail.png" alt="" />
@@ -47,6 +44,10 @@ export default {
     console.log(this.userAnwsers)
     this.isSucces = this.userAnwsers && !this.userAnwsers.map((item) => item.anwser).includes('Yes')
     console.log(this.isSucces)
+    this.$confetti.start();
+    setTimeout(() => {
+      this.$confetti.stop();
+    }, 3000);
   },
   methods: {
     onClickButtonDone(type) {
@@ -60,21 +61,10 @@ export default {
 .alert {
   &-content {
     min-height: 590px;
-    position: relative;
     h5 {
       margin-top: 32px;
     }
-    button {
-      position: relative;
-      z-index: 2;
-    }
 
-    &-firework {
-      max-width: 374px;
-      position: absolute;
-      overflow: hidden;
-      z-index: 1;
-    }
   }
 }
 </style>

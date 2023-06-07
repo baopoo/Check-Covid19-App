@@ -7,9 +7,10 @@ import 'ant-design-vue/dist/antd.css'
 import './styles/index.scss'
 import { ValidationProvider } from 'vee-validate';
 import { ValidationObserver } from 'vee-validate'
-import VueFireworks from 'vue-damp-fireworks'
+import VueConfetti from 'vue-confetti'
+Vue.use(VueConfetti)
 
-Vue.use(VueFireworks)
+
 
 import { Radio, Progress, Select, Checkbox, Modal, Spin} from 'ant-design-vue';
 Vue.use(Radio);
