@@ -41,13 +41,13 @@ export default {
     },
   },
   created() {
-    console.log(this.userAnwsers)
     this.isSucces = this.userAnwsers && !this.userAnwsers.map((item) => item.anwser).includes('Yes')
-    console.log(this.isSucces)
-    this.$confetti.start();
-    setTimeout(() => {
-      this.$confetti.stop();
-    }, 3000);
+    if (this.isSucces) {
+      this.$confetti.start();
+      setTimeout(() => {
+        this.$confetti.stop();
+      }, 3000);
+    }
   },
   methods: {
     onClickButtonDone(type) {

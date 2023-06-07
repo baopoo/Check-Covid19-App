@@ -13,7 +13,7 @@
             class="d-flex flex-column gap-3" 
             @submit.prevent="handleSubmit(onSubmit)"
           >
-            <ValidationProvider rules="required|alpha_spaces" v-slot="{ errors }">
+            <ValidationProvider name="FirstName" rules="required|alpha_spaces" v-slot="{ errors }">
               <Input
                 :label="'First Name'"
                 :placeholder="'Input your first name !'"
@@ -21,7 +21,7 @@
                 :error="errors[0]"
               ></Input>
             </ValidationProvider>
-            <ValidationProvider rules="required|alpha_spaces" v-slot="{ errors }">
+            <ValidationProvider name="LastName" rules="required|alpha_spaces" v-slot="{ errors }">
               <Input
                 :label="'Last Name'"
                 :placeholder="'Input your last name !'"
@@ -36,12 +36,12 @@
                   :contacts="contactNumbers" 
                   @contactNumber="user.contactNumber = $event">
                 </Select>
-                <ValidationProvider rules="required|numeric" v-slot="{ errors }">
+                <ValidationProvider name="Phone" rules="required|numeric" v-slot="{ errors }">
                   <Input v-model="user.contactPhone" :error="errors[0]" />
                 </ValidationProvider>
               </div>
             </div>
-            <ValidationProvider :rules="{ required: { allowFalse: false }}" v-slot="{ errors }">
+            <ValidationProvider name="Confirm" :rules="{ required: { allowFalse: false }}" v-slot="{ errors }">
               <div class="d-flex gap-3">
                 <CheckBox 
                   v-model="user.isConfirmed"
@@ -75,18 +75,26 @@ import CheckBox from '../components/CheckBox.vue'
 import { extend } from 'vee-validate'
 import { alpha_spaces, numeric, required } from 'vee-validate/dist/rules'
 
-extend('alpha_spaces', {
-  ...alpha_spaces,
-  message: 'This field must contain alphabetic characters or spaces !',
-})
-extend('numeric', {
-  ...numeric,
-  message: 'This field must be numeric characters !',
-})
-extend('required', {
-  ...required,
-  message: 'This field is required !',
-})
+//Convert lại message error
+
+// extend('alpha_spaces', {
+//   ...alpha_spaces,
+//   message: 'This field must contain alphabetic characters or spaces !',
+// })
+// extend('numeric', {
+//   ...numeric,
+//   message: 'This field must be numeric characters !',
+// })
+// extend('required', {
+//   ...required,
+//   message: 'This field is required !',
+// })
+
+//Lây message mặc định trong file main.js khai báo
+extend('alpha_spaces', alpha_spaces);
+extend('numeric', numeric);
+extend('required', required);
+
 
 
 export default {
