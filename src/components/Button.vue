@@ -3,7 +3,8 @@
     class="button py-2 text-normal"
     :disabled="isDisabled"
     @click="onClickButton(name)"
-    :style="[name === 'Back' ? classButtonBack : classButtonNext, isDisabled && classButtonDisabled]"
+    :style="[name === 'Back' || name === 'Done'? classButtonBack : classButtonNext, isDisabled && classButtonDisabled]"
+    :type="name ==='Submit' ? 'submit' : 'button'"
   >
     {{ name }}
   </button>

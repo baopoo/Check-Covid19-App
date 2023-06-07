@@ -1,0 +1,17 @@
+.ant-select {
+  &-selection {
+    height: unset;
+    &__rendered {
+      padding: 8px 12px;
+      font-size: 16px;
+      line-height: 24px;
+      margin: 0;
+    }
+  }
+
+  &-arrow {
+    vertical-align: middle;
+    font-size: 13px;
+    margin-top: -6px;
+  }
+}

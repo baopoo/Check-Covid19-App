@@ -3,6 +3,7 @@ const Location = () => import('../views/Location.vue')
 const OfficeGuidelines = () => import('../views/OfficeGuidelines.vue')
 const HealthChecklist = () => import('../views/HealthChecklist.vue')
 const ContactInformation = () => import('../views/ContactInformation.vue')
+const Alert = () => import('../views/Alert.vue')
 
 
 export const routes = [
@@ -30,6 +31,11 @@ export const routes = [
         path: '/contact-information',
         name: 'contact-information',
         component: ContactInformation,
+    },
+    {
+        path: '/submit',
+        name: 'submit',
+        component: Alert,
     },
     {
         path: '',

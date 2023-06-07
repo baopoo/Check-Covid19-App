@@ -1,0 +1,9 @@
+.ant-checkbox-inner {
+  width: 24px;
+  height: 24px;
+
+  &::after {
+    width: 12px;
+    height: 15px;
+  }
+}

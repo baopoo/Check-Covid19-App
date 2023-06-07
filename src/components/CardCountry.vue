@@ -35,6 +35,7 @@ export default {
       this.$store.dispatch('country/fetchContryCode', country.code);
       this.$store.dispatch('country/fetchFirstFacility', country.facilityList[0]?.name);
       this.$store.dispatch('country/fetchListQuestion', country.questionList)
+      this.$store.dispatch('user/fetchEmptyListAnwser', [])
     },
   },
 }

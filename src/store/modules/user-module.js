@@ -2,11 +2,15 @@ export const user = {
   namespaced: true,
   state: {
     listAnwser: [],
+    userInfo: {}
   },
   getters: {
     listAnwser: (state) => {
       return state.listAnwser
     },
+    userInfo: (state) => {
+      return state.userInfo
+    }
   },
 
   mutations: {
@@ -15,6 +19,9 @@ export const user = {
     },
     pushNewAnwser: (state, payload) => {
       state.listAnwser.push(payload);
+    },
+    updateUserInfo: (state, userInfo) => {
+      state.userInfo = userInfo;
     }
   },
   actions: {
@@ -33,6 +40,13 @@ export const user = {
         commit('pushNewAnwser', payload)
       }
       console.log(state.listAnwser);
+    },
+    fetchEmptyListAnwser: ({commit}, listAnwser)=> {
+      commit('updateListAnwser', listAnwser);
+    },
+    fetchUserInfo: ({commit}, userInfo)=> {
+      console.log(userInfo);
+      commit('updateUserInfo', userInfo);
     },
   },
 }
