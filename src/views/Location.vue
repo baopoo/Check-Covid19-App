@@ -1,32 +1,37 @@
 <template>
   <div class="location">
     <Header></Header>
-    <div class="fs-normal location-introduce">
-      <h5 class="fw-500 fc-primary9">To begin, please select your country and facility location</h5>
-      <span class="fw-400 fc-gray9 text-normal">Select your country:</span>
-    </div>
-    <div class="d-flex gap-3 location-country-group" v-if="countries">
-      <card-country
-        v-for="(country, index) in countries"
-        :key="index"
-        :country="country"
-        :class="{ active: index === 0 }"
-      ></card-country>
-    </div>
-    <div class="mt-3">
-      <Question
-        :question="'Select the facility you are entering:'"
-        :isChangFacility="true"
-        :anwsers="facility"
-      ></Question>
-    </div>
-    <div class="mt-3">
-      <Question :question="'Select the status:'" :anwsers="status"></Question>
-    </div>
-    <div class="location-group-button button-group mt-4">
-      <Button :name="'Back'" @onClickButton="onClickEventLocaton($event)"></Button>
-      <Button :name="'Next'" @onClickButton="onClickEventLocaton($event)"></Button>
-    </div>
+    <template v-if="facility.length !== 0">
+      <div class="fs-normal location-introduce">
+        <h5 class="fw-500 fc-primary9">To begin, please select your country and facility location</h5>
+        <span class="fw-400 fc-gray9 text-normal">Select your country:</span>
+      </div>
+      <div class="d-flex gap-3 location-country-group" v-if="countries">
+        <card-country
+          v-for="(country, index) in countries"
+          :key="index"
+          :country="country"
+          :class="{ active: index === 0 }"
+        ></card-country>
+      </div>
+      <div class="mt-3">
+        <Question
+          :question="'Select the facility you are entering:'"
+          :isChangFacility="true"
+          :anwsers="facility"
+        ></Question>
+      </div>
+      <div class="mt-3">
+        <Question :question="'Select the status:'" :anwsers="status"></Question>
+      </div>
+      <div class="location-group-button button-group mt-4">
+        <Button :name="'Back'" @onClickButton="onClickEventLocaton($event)"></Button>
+        <Button :name="'Next'" @onClickButton="onClickEventLocaton($event)"></Button>
+      </div>
+    </template>
+    <template v-else>
+      <Loading :height="'708px'" :width="'100%'"></Loading>
+    </template>
   </div>
 </template>
 <script>
@@ -34,9 +39,10 @@ import Header from '../components/Header.vue'
 import CardCountry from '../components/CardCountry.vue'
 import Question from '../components/Question.vue'
 import Button from '../components/Button.vue'
+import Loading from '../components/Loading.vue'
 
 export default {
-  components: { Header, CardCountry, Question, Button },
+  components: { Header, CardCountry, Question, Button, Loading },
   data() {
     return {
       status: [
@@ -69,6 +75,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .location {
+  position: relative;
+
   &-introduce {
     padding: 24px 16px 16px;
   }

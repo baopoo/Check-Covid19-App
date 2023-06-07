@@ -27,6 +27,7 @@ export default {
   },
   methods: {
     handleChange(value) {
+      this.defaultValue = value
       let contactNumber = value.slice(value.indexOf('+') + 1)
       this.$emit('contactNumber', contactNumber)
     },
