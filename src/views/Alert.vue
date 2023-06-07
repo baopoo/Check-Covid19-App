@@ -43,7 +43,9 @@ export default {
   created() {
     this.isSucces = this.userAnwsers && !this.userAnwsers.map((item) => item.anwser).includes('Yes')
     if (this.isSucces) {
-      this.$confetti.start();
+      this.$confetti.start({
+        defaultType: 'heart'
+      });
       setTimeout(() => {
         this.$confetti.stop();
       }, 3000);
@@ -67,4 +69,5 @@ export default {
 
   }
 }
+
 </style>
