@@ -7,24 +7,15 @@ import 'ant-design-vue/dist/antd.css'
 import './styles/index.scss'
 import { ValidationProvider, ValidationObserver, localize } from 'vee-validate'
 import en from 'vee-validate/dist/locale/en.json'
+import Antd from 'ant-design-vue'
+
+Vue.use(VueRouter)
+Vue.use(Antd)
 
 localize('en', en);
 
 import VueConfetti from 'vue-confetti'
 Vue.use(VueConfetti)
-
-
-
-import { Radio, Progress, Select, Checkbox, Modal, Spin, Button, Input} from 'ant-design-vue';
-Vue.use(Radio);
-Vue.use(Progress)
-Vue.use(VueRouter)
-Vue.use(Select)
-Vue.use(Checkbox)
-Vue.use(Modal)
-Vue.use(Spin)
-Vue.use(Button)
-Vue.use(Input)
 
 
 const router = new VueRouter({
