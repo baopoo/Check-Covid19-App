@@ -4,9 +4,9 @@
     size="large"
     :type="type"
     :htmlType="htmlType"
-    @click="onClickButton(name)"
+    @click="onClickButton()"
   >
-    {{ name }}
+    <slot></slot>
   </a-button>
 </template>
 <script>
@@ -15,10 +15,6 @@ export default {
     isDisabled: {
       type: Boolean,
       default: false,
-    },
-    name: {
-      type: String,
-      required: true,
     },
     type: {
       type: String,
@@ -30,8 +26,8 @@ export default {
     }
   },
   methods: {
-    onClickButton(type) {
-      this.$emit('onClickButton', type)
+    onClickButton() {
+      this.$emit('onClickButton')
     },
   },
 }

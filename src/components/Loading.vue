@@ -3,7 +3,7 @@
     class="spin-loading d-flex justify-content-center align-items-center"
     :style="`height: ${height} ; width: ${width}`"
   >
-    <a-spin :size="'large'" tip="Loading..." />
+    <a-spin size="large" tip="Loading..." />
   </div>
 </template>
 <script>

@@ -11,9 +11,9 @@
         :format="(percent) => percent + ' of 3'"
         :percent="currentPercent"
         :width="54"
-        :strokeColor="'#15B982'"
+        strokeColor="#15B982"
         :strokeWidth = "10"
-        :stroke = "'#CDD3DB'"
+        stroke = "#CDD3DB"
       />
     </div>
   </div>

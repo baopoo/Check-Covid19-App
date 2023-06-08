@@ -3,11 +3,10 @@
     <Header></Header>
     <div class="px-3 mb-4">
       <Step 
-        :current-step="'2.Health Checklist'" 
+        current-step="2.Health Checklist" 
         :current-percent="2" 
-        :next-step="'Next: Personal Information'"
-      >
-      </Step>
+        next-step="Next: Personal Information"
+      ></Step>
     </div>
     <div class="health-checklist-content px-3 pb-4">
       <span class="fw-400 text-normal fc-gray9">Please answer follow questions below:</span>
@@ -25,15 +24,14 @@
     </div>
     <div class="health-checklist-button button-group">
       <Button 
-        :name="'Back'" 
-        :type="'default'"
-        @onClickButton="onClickEventButton($event)" 
-      ></Button>
+        type="default" 
+        @onClickButton="onClickBack()"
+      >Back</Button>
       <Button
-        :name="'Next'"
+        type="primary"
         :isDisabled="questionList.length !== anwserList.length"
-        @onClickButton="onClickEventButton($event)" :type="'primary'"
-      ></Button>
+        @onClickButton="onClickNext()"
+      >Next</Button>
     </div>
   </div>
 </template>
@@ -64,12 +62,11 @@ export default {
     },
   },
   methods: {
-    onClickEventButton(type){
-      if (type === 'Back') {
-        this.$router.push('/office-guidelines')
-      } else {
-        this.$router.push('contact-information')
-      }
+    onClickBack(){
+      this.$router.push('/office-guidelines')
+    },
+    onClickNext(){
+      this.$router.push('contact-information')
     }
   },
 }

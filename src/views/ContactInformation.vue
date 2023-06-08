@@ -2,7 +2,10 @@
   <div class="contact-information">
     <Header></Header>
     <div class="px-3 mb-4">
-      <Step :current-step="'3.Contact Information'" :current-percent="3" :next-step="'Final Step'"> </Step>
+      <Step 
+      current-step="3.Contact Information" 
+      :current-percent="3" 
+      next-step="Final Step"> </Step>
     </div>
     <div class="contact-information-content px-3 pb-2 fs-normal">
       <span class="fw-400 text-normal fc-gray9">Please fill in your contact details:</span>
@@ -15,16 +18,16 @@
           >
             <ValidationProvider name="FirstName" rules="required|alpha_spaces" v-slot="{ errors }">
               <Input
-                :label="'First Name'"
-                :placeholder="'Input your first name !'"
+                label="First Name"
+                placeholder="Input your first name !"
                 v-model="user.firstName"
                 :error="errors[0]"
               ></Input>
             </ValidationProvider>
             <ValidationProvider name="LastName" rules="required|alpha_spaces" v-slot="{ errors }">
               <Input
-                :label="'Last Name'"
-                :placeholder="'Input your last name !'"
+                label="Last Name"
+                placeholder="Input your last name !"
                 v-model="user.lastName"
                 :error="errors[0]"
               ></Input>
@@ -61,16 +64,14 @@
     </div>
     <div class="contact-information-button button-group">
       <Button 
-        :name="'Back'" 
-        :type="'default'"
-        @onClickButton="onClickButtonBack()" 
-      ></Button>
+        type="default"
+        @onClickButton="onClickBack()" 
+      >Back</Button>
       <Button 
-        :name="'Submit'" 
         form="contact-information-form" 
-        :type="'primary'" 
-        :htmlType="'submit'"
-      ></Button>
+        type="primary" 
+        htmlType="submit"
+      >Submit</Button>
     </div>
   </div>
 </template>
@@ -133,7 +134,7 @@ export default {
       this.$store.dispatch('user/fetchUserInfo', this.user)
       this.$router.push('/submit')
     },
-    onClickButtonBack(){
+    onClickBack(){
       this.$router.push('/health-checklist');
     }
   },

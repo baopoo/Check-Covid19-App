@@ -16,30 +16,27 @@
       </div>
       <div class="mt-3">
         <Question
-          :question="'Select the facility you are entering:'"
+          question="Select the facility you are entering:"
           :isChangFacility="true"
           :anwsers="facility"
         ></Question>
       </div>
       <div class="mt-3">
-        <Question :question="'Select the status:'" :anwsers="status"></Question>
+        <Question question="Select the status:" :anwsers="status"></Question>
       </div>
       <div class="location-group-button button-group mt-4">
         <Button 
-          :name="'Back'" 
-          :type="'default'"
-          @onClickButton="onClickEventLocaton($event)" 
-        >
-        </Button>
+          type="default"
+          @onClickButton="onClickBack()" 
+        >Back</Button>
         <Button 
-          :name="'Next'" 
-          :type="'primary'"
-          @onClickButton="onClickEventLocaton($event)" 
-        ></Button>
+          type="primary"
+          @onClickButton="onClickNext()" 
+        >Next</Button>
       </div>
     </template>
     <template v-else>
-      <Loading :height="'708px'" :width="'100%'"></Loading>
+      <Loading height="708px" width="100%"></Loading>
     </template>
   </div>
 </template>
@@ -72,13 +69,12 @@ export default {
     this.$store.dispatch('country/fetchListCountry')
   },
   methods: {
-    onClickEventLocaton(type) {
-      if (type === 'Back') {
-        this.$router.push('/getting-started')
-      } else {
-        this.$router.push('/office-guidelines')
-      }
+    onClickBack(){
+      this.$router.push('/getting-started')
     },
+    onClickNext(){
+      this.$router.push('/office-guidelines')
+    }
   },
 }
 </script>

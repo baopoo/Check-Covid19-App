@@ -8,7 +8,7 @@
       comes on premise. This check-in system is required for both visitors and employees and you will be required to
       check-in on each visit to the premises.
     </p>
-    <Button :name="'Get Started'" :type="'primary'" @onClickButton="onClickGoLocation()"></Button>
+    <Button type="primary" @onClickButton="onClickGettingStarted()">Get Started</Button>
 
     <span class="text-small-12 fc-gray6 fw-400">Version 1.0.1</span>
   </div>
@@ -19,7 +19,7 @@ import Button from '../components/Button.vue';
 export default {
   components: {Button},
   methods: {
-    onClickGoLocation() {
+    onClickGettingStarted() {
       this.$router.push('/select-location')
     },
   },

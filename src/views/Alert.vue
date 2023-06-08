@@ -31,10 +31,12 @@
         </p>
       </template>
       <Button 
-        :name="'Done'" 
+        name="Done" 
+        type="default"
         :style="'width: 157px'" 
-        @onClickButton="onClickButtonDone($event)" :type="'default'"
+        @onClickButton="onClickDone()" 
       >
+      Done
       </Button>
     </div>
   </div>
@@ -66,8 +68,7 @@ export default {
     }
   },
   methods: {
-    onClickButtonDone(type) {
-      console.log(type);
+    onClickDone() {
       this.$router.push('/')
     },
   },
