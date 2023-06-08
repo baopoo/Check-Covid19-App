@@ -50,7 +50,7 @@ input {
 
   }
 }
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+::-webkit-input-placeholder { 
     font-size: 14px;
     line-height: 22px;
     font-style: italic;

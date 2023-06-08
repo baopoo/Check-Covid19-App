@@ -1,7 +1,7 @@
 <template>
   <a-button
     :disabled = "isDisabled"
-    :size="'large'"
+    size="large"
     :type="type"
     :htmlType="htmlType"
     @click="onClickButton(name)"
