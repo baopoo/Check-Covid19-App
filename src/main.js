@@ -5,9 +5,7 @@ import { routes } from './router'
 import { store } from './store'
 import 'ant-design-vue/dist/antd.css'
 import './styles/index.scss'
-import { ValidationProvider } from 'vee-validate'
-import { ValidationObserver } from 'vee-validate'
-import { localize } from 'vee-validate';
+import { ValidationProvider, ValidationObserver, localize } from 'vee-validate'
 import en from 'vee-validate/dist/locale/en.json'
 
 localize('en', en);
