@@ -1,7 +1,7 @@
 import flagAUS from '../../assets/flagAus.png'
 import flagVIE from '../../assets/flagVie.png'
 import flagIND from '../../assets/flagInd.png'
-import { fetchCountry } from '../../api/countryApi'
+import { fetchCountry } from '../../api/modules/countryApi'
 
 export const country = {
   namespaced: true,

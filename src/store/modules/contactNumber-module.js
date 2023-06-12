@@ -1,4 +1,4 @@
-import { fetchContact } from '../../api/contactApi'
+import { fetchContact } from '../../api/modules/contactApi'
 
 export const contactNumber = {
   namespaced: true,
