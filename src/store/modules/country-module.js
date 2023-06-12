@@ -1,8 +1,7 @@
-import axios from 'axios'
 import flagAUS from '../../assets/flagAus.png'
 import flagVIE from '../../assets/flagVie.png'
 import flagIND from '../../assets/flagInd.png'
-
+import { fetchCountry } from '../../api/countryApi'
 
 export const country = {
   namespaced: true,
@@ -15,16 +14,16 @@ export const country = {
     listCountryFlag: [
       {
         id: 1,
-        imgUrl: flagAUS
+        imgUrl: flagAUS,
       },
       {
         id: 2,
-        imgUrl: flagIND
+        imgUrl: flagIND,
       },
       {
         id: 3,
-        imgUrl: flagVIE
-      }
+        imgUrl: flagVIE,
+      },
     ],
   },
   getters: {
@@ -38,14 +37,14 @@ export const country = {
       return state.listFacility
     },
     countryCode: (state) => {
-      return state.countryCode;
+      return state.countryCode
     },
     firstFacility: (state) => {
-      return state.firstFacility;
+      return state.firstFacility
     },
     listQuestion: (state) => {
-      return state.listQuestion;
-    }
+      return state.listQuestion
+    },
   },
 
   mutations: {
@@ -56,39 +55,34 @@ export const country = {
       state.listFacility = listFacility
     },
     updateCountryCode: (state, countryCode) => {
-      state.countryCode = countryCode;
+      state.countryCode = countryCode
     },
     updateFirstFacility: (state, firstFacility) => {
       state.firstFacility = firstFacility
     },
     updateListQuestion: (state, listQuestion) => {
       state.listQuestion = listQuestion
-    }
+    },
   },
   actions: {
-    fetchListCountry: ({ commit }) => {
+    fetchListCountry: async ({ commit }) => {
       try {
-         axios
-          .get('https://ss.covid19checkins.com/backend/api/countries')
-          .then((response) => {
-            if (response.status === 200) {
-              let data = response.data
-              let facilityList = data[0].facilityList
-              let questionList = data[0].questionList
-              let countryCode = data[0].code
-              let firstFacility = facilityList[0].name
-              commit('updateListCountry',data)
-              commit('updateListFacility',facilityList)
-              commit('updateListQuestion', questionList)
-              commit('updateCountryCode', countryCode)
-              commit('updateFirstFacility', firstFacility)
-            } else {
-              console.log(response)
-            }
-          })
-          .catch((error) => {
-            console.log(error)
-          })
+        const response = await fetchCountry()
+        if (response.status === 200) {
+          let data = response.data
+          let facilityList = data[0].facilityList
+          let questionList = data[0].questionList
+          let countryCode = data[0].code
+          let firstFacility = facilityList[0].name
+          commit('updateListCountry', data)
+          commit('updateListFacility', facilityList)
+          commit('updateListQuestion', questionList)
+          commit('updateCountryCode', countryCode)
+          commit('updateFirstFacility', firstFacility)
+         } else {
+          console.log(response);
+         }
+        
       } catch (error) {
         console.log(error)
       }
@@ -104,6 +98,6 @@ export const country = {
     },
     fetchListQuestion: ({ commit }, listQuestion) => {
       commit('updateListQuestion', listQuestion)
-    }
+    },
   },
 }
